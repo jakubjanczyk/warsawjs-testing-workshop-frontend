@@ -21,15 +21,15 @@ export const givenFilteredProducts = (filters, products) => {
       .reply(200, products);
 };
 
-export const givenCategories = (categories = defaultCategories) => {
+export const givenCategories = (categories = []) => {
     nock('http://localhost')
       .get('/categories')
       .once()
       .reply(200, categories);
 };
 
-export const renderComponent = async (products = [], categories = defaultCategories) => {
-    givenProducts([]);
+export const renderComponent = async (products = [], categories = []) => {
+    givenProducts(products);
     givenCategories(categories);
     render(<MemoryRouter><ProductsList /></MemoryRouter>);
     await waitForElementToBeRemoved(() => screen.getByText('Wczytywanie...'));

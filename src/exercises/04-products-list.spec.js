@@ -4,67 +4,28 @@ import React from 'react';
 import { ProductsList } from '../products-list/ProductsList';
 import nock from 'nock';
 import { MemoryRouter } from 'react-router';
-import _ from 'lodash';
+import {
+    clickSearchButton,
+    getDisplayedProducts,
+    givenCategories,
+    givenFilteredProducts,
+    givenProducts,
+    typeTextIntoSearchBar, waitForProductsToBeDisplayed
+} from './utils/products-list-utils';
 
 describe('ProductsList', () => {
-    const defaultCategories = [{ key: 'smartfon', label: 'smartfon' }, { key: 'smartwatch', label: 'smartwatch' }];
-
     beforeEach(() => {
         nock.cleanAll();
     });
 
     afterEach(cleanup);
 
-    const givenProducts = (products) => {
-        nock('http://localhost')
-          .get('/products')
-          .once()
-          .reply(200, products);
-    };
-
-    const givenFilteredProducts = (filters, products) => {
-        nock('http://localhost')
-          .get('/products')
-          .query(filters)
-          .once()
-          .reply(200, products);
-    };
-
-    const givenCategories = (categories = defaultCategories) => {
-        nock('http://localhost')
-          .get('/categories')
-          .once()
-          .reply(200, categories);
-    };
-
-    const renderComponent = async (products = [], categories = defaultCategories) => {
-        givenProducts([]);
+    const renderComponent = async (products = [], categories = []) => {
+        givenProducts(products);
         givenCategories(categories);
         render(<MemoryRouter><ProductsList /></MemoryRouter>);
         await waitForElementToBeRemoved(() => screen.getByText('Wczytywanie...'));
     };
-
-    const getDisplayedProducts = async () => {
-        const productsContainer = await screen.findByTestId('products');
-        const productsNames = await within(productsContainer).findAllByRole('heading', {level: 4});
-        // const productsNames = await screen.findAllByTestId('product');
-
-        return productsNames.map(item => item.textContent);
-    }
-
-    const typeTextIntoSearchBar = typedText => {
-        const input = screen.getByPlaceholderText('Szukaj produktu...');
-        userEvent.type(input, typedText);
-    };
-    const clickSearchButton = () => {
-        userEvent.click(screen.getByRole('button', { name: /Szukaj/ }));
-    };
-    const waitForProductsToBeDisplayed = async (expectedNames) => {
-        return waitFor(async () => {
-            const displayedNames = await getDisplayedProducts();
-            return _.isEqual(displayedNames, expectedNames) ? Promise.resolve(displayedNames) : Promise.reject(displayedNames);
-        });
-    }
 
     it('should display available categories', async () => {
         const categories = [{ key: 'smartfon', label: 'smartfon' }, { key: 'smartwatch', label: 'smartwatch' }];
@@ -92,7 +53,6 @@ describe('ProductsList', () => {
         givenFilteredProducts({name_like: typedText}, [{ id: '123', name: 'Samsung', shortDescription: '' }]);
         typeTextIntoSearchBar(typedText);
         clickSearchButton();
-
         const displayedProductNames = await waitForProductsToBeDisplayed(['Samsung']);
 
         expect(displayedProductNames).toEqual(['Samsung']);
@@ -102,6 +62,15 @@ describe('ProductsList', () => {
     // HINT: zweryfikuj, że odpowiednie parametry zostały wysłane do API
     // HINT: poczekaj, aż produkty się przerenderują na stronie
     it('should filter list when selected some category', async () => {
+        const products = [{ id: '123', name: 'Samsung', shortDescription: '' }, { id: '234', name: 'Apple', shortDescription: '' }];
+        const categories = [{ key: 'smartfon', label: 'smartfon' }, { key: 'smartwatch', label: 'smartwatch' }];
+        await renderComponent(products, categories);
 
+        const selectedCategory = 'smartfon';
+        givenFilteredProducts({category: selectedCategory}, [{ id: '123', name: 'Samsung', shortDescription: '' }]);
+        userEvent.click(screen.getByText(selectedCategory));
+        const displayedProductNames = await waitForProductsToBeDisplayed(['Samsung']);
+
+        expect(displayedProductNames).toEqual(['Samsung']);
     });
 });

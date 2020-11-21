@@ -9,15 +9,29 @@ import { Input } from '../components/Input/Input';
 describe('Button', () => {
 
     it('should render provided text', () => {
-        // DEMO
+        render(<Button>Tekst na przycisku</Button>)
+
+        const buttonElement = screen.getByRole('button');
+
+        expect(buttonElement).toHaveTextContent('Tekst na przycisku');
     });
 
     it('should allow to disable button', () => {
-        // DEMO
+        render(<Button disabled>Tekst</Button>);
+
+        const buttonElement = screen.getByRole('button');
+
+        expect(buttonElement).toBeDisabled();
     });
 
     it('should make a callback when button clicked', () => {
-        // DEMO
+        const clickHandler = jest.fn();
+        render(<Button onClick={clickHandler}>Tekst</Button>);
+
+        const buttonElement = screen.getByRole('button');
+        userEvent.click(buttonElement);
+
+        expect(clickHandler).toHaveBeenCalled();
     });
 });
 

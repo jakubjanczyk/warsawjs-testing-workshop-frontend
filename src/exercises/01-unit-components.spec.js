@@ -42,9 +42,25 @@ describe('Input', () => {
     // HINT: wartość podawana jest poprzez property "value"
     // HINT: możesz użyć metod screen.getByPlaceholderText(text) albo screen.getByRole() w celu odnalezienia inputu w drzewie dom
     // HINT: w razie potrzeby możesz użyć metody screen.debug() w celu wyświetlenia wyrenderowanego komponentu
+    it('should display provided value', () => {
+        render(<Input placeholder={'Szukaj...'} value={'wartość'}/>)
+
+        const input = screen.getByPlaceholderText('Szukaj...');
+
+        expect(input).toHaveDisplayValue('wartość');
+    });
 
     // 2. Zweryfikuj, że callback onChange zostanie odpalony gdy zmienimy tekst inputa
     // HINT: użyj metody z obiektu userEvent w celu zmiany tekstu
     // HINT: użyj zamockowanej metody w celu weryfikacji
+    it('should make a callback when value changed', () => {
+        const changeHandler = jest.fn();
+        render(<Input placeholder={'Szukaj...'} onChange={changeHandler} />);
+
+        const input = screen.getByPlaceholderText('Szukaj...');
+        userEvent.type(input, 'nowa wartość')
+
+        expect(changeHandler).toHaveBeenCalledWith('nowa wartość');
+    });
 
 });

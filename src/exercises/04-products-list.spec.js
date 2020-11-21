@@ -38,7 +38,7 @@ describe('ProductsList', () => {
     };
 
     const renderComponent = async (products = [], categories = defaultCategories) => {
-        givenProducts([]);
+        givenProducts(products);
         givenCategories(categories);
         render(<MemoryRouter><ProductsList /></MemoryRouter>);
         await waitForElementToBeRemoved(() => screen.getByText('Wczytywanie...'));

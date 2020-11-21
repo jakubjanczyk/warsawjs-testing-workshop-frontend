@@ -41,10 +41,35 @@ describe('SearchBar', () => {
     });
 
     // TODO Zadania:
-    // 1. Napisz test który sprawdzi, że po kliknięciu przycisku "Wyczyść" uprzednio wprowadzony tekst zostanie usunięty
+    /// 1. Napisz test który sprawdzi, że po kliknięciu przycisku "Wyczyść" uprzednio wprowadzony tekst zostanie usunięty
+    it('should clear text', () => {
+        render(<SearchBar />);
+
+        const input = getInputAndTypeText('samsung');
+        userEvent.click(getClearButton());
+
+        expect(input).toHaveDisplayValue('');
+    });
 
     // 2. Napisz test który sprawdzi, że przycisk "Szukaj" będzie miał status disabled gdy brak tekstu
+    it('should have search button disabled when no text', () => {
+        render(<SearchBar />);
+
+        const searchButton = screen.getByRole('button', {name: /Szukaj/});
+
+        expect(searchButton).toBeDisabled();
+    });
 
     // 3. Napisz test który sprawdzi, że funkcja onSearch zostanie odpalona z odpowiednim tekstem, gdy wpisano tekst i kliknięto przycisk
     // HINT: użyj asercji toHaveBeenCalledWith()
+    it('should make a callback when button clicked', () => {
+        const handleSearch = jest.fn();
+        render(<SearchBar onSearch={handleSearch}/>);
+
+        getInputAndTypeText('samsung');
+        const searchButton = screen.getByRole('button', {name: /Szukaj/});
+        userEvent.click(searchButton);
+
+        expect(handleSearch).toHaveBeenCalledWith('samsung');
+    });
 });

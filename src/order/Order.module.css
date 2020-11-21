@@ -1,0 +1,46 @@
+.notFinalizedPage {
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    width: 100%;
+}
+
+.formElements {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.formElement {
+    display: flex;
+    flex-direction: column;
+}
+
+.formElement strong {
+    padding-bottom: 4px;
+}
+
+.formElement + .formElement {
+    margin-top: 8px;
+}
+
+.finalizedPage {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

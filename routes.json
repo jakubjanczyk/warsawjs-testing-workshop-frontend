@@ -1,0 +1,3 @@
+{
+  "/products/:id/comments": "/comments?productId=:id"
+}

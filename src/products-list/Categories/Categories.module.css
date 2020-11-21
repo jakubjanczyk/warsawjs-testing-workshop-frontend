@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    padding: 0 8px;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.categories {
+    list-style: none;
+}
+
+.category {
+    margin: 8px 0;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+.category:hover {
+    color: #3c38bc;
+    opacity: 0.8;
+}
+
+.selected {
+    color: #3c38bc;
+    font-weight: 500;
+}

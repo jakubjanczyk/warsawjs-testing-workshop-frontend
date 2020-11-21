@@ -1,0 +1,211 @@
+{
+  "categories": [
+    {
+      "key": "smartfon",
+      "label": "Smartfony"
+    },
+    {
+      "key": "smartwatch",
+      "label": "Smartwatche"
+    },
+    {
+      "key": "konsola",
+      "label": "Konsole"
+    },
+    {
+      "key": "tablet",
+      "label": "Tablety"
+    }
+  ],
+  "orders": [],
+  "products": [
+    {
+      "id": "1",
+      "name": "Galaxy S20",
+      "category": "smartfon",
+      "remaining": 15,
+      "manufacturer": "Samsung",
+      "price": 2999,
+      "colors": [
+        {
+          "key": "grey",
+          "label": "Szary"
+        },
+        {
+          "key": "black",
+          "label": "Czarny"
+        },
+        {
+          "key": "gold",
+          "label": "Złoty",
+          "price": 3099
+        }
+      ],
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "2",
+      "name": "Galaxy S20+",
+      "category": "smartfon",
+      "remaining": 0,
+      "manufacturer": "Samsung",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "3",
+      "name": "Galaxy S20 Pro",
+      "category": "smartfon",
+      "remaining": 15,
+      "manufacturer": "Samsung",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "4",
+      "name": "iPhone 12",
+      "category": "smartfon",
+      "remaining": 15,
+      "manufacturer": "Apple",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "5",
+      "name": "iPhone 12 Pro",
+      "category": "smartfon",
+      "remaining": 15,
+      "manufacturer": "Apple",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "6",
+      "name": "Huawei p40",
+      "category": "smartfon",
+      "remaining": 15,
+      "manufacturer": "Huawei",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "7",
+      "name": "Xiaomi Mi 10",
+      "category": "smartfon",
+      "remaining": 15,
+      "manufacturer": "Xiaomi",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "8",
+      "name": "Nintendo Switch",
+      "category": "konsola",
+      "remaining": 15,
+      "manufacturer": "Nitendo",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "9",
+      "name": "PlayStation 5",
+      "category": "konsola",
+      "remaining": 15,
+      "manufacturer": "Sony",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "10",
+      "name": "Xbox Series X",
+      "category": "konsola",
+      "remaining": 15,
+      "manufacturer": "Microsoft",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "11",
+      "name": "Galaxy Watch 6",
+      "category": "smartwatch",
+      "remaining": 15,
+      "manufacturer": "Samsung",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "12",
+      "name": "Apple Watch 6",
+      "category": "smartwatch",
+      "remaining": 15,
+      "manufacturer": "Apple",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "13",
+      "name": "Xiaomi Mi Band 4",
+      "category": "smartwatch",
+      "remaining": 15,
+      "manufacturer": "Xiaomi",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "14",
+      "name": "Galaxy Tab S7",
+      "category": "tablet",
+      "remaining": 15,
+      "manufacturer": "Samsung",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    },
+    {
+      "id": "15",
+      "name": "iPad Pro",
+      "category": "tablet",
+      "remaining": 15,
+      "manufacturer": "Apple",
+      "price": 2999,
+      "image": "https://images.samsung.com/is/image/samsung/p5/au/smartphones/galaxy-s20/buy/S20-FE_Navy_SKUimage_MO-img.jpg",
+      "shortDescription": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultrices tristique massa in sodales. Donec vehicula finibus ante nec maximus."
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "productId": "1",
+      "username": "User 1",
+      "comment": "Super produkt!"
+    }
+  ]
+}

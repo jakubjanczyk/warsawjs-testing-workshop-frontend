@@ -1,0 +1,8 @@
+.container {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    min-width: 80px;
+    max-width: 80px;
+    justify-content: space-between;
+}

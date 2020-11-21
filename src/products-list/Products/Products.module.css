@@ -1,0 +1,72 @@
+.container {
+    padding: 16px 0;
+    width: 500px;
+}
+
+.products {
+    padding-top: 8px;
+
+}
+
+.product {
+    border: 1px solid darkgray;
+    display: flex;
+    padding: 8px;
+}
+
+.productImage {
+    height: 100px;
+    width: 100px;
+}
+
+.product + .product {
+    margin-top: 8px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.description a {
+    align-self: flex-start;
+}
+
+.description h4 {
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.buttons {
+    margin-top: auto;
+}
+
+.buttons button + button {
+    margin-left: 16px;
+}
+
+.paging {
+    display: flex;
+    height: 32px;
+    align-items: center;
+}
+
+.pagingButtons {
+}
+.pagingButtons button + button {
+    margin-left: 4px;
+}
+
+.perPageSelect {
+    margin-left: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.select {
+    margin-left: 8px;
+    height: 100%;
+}

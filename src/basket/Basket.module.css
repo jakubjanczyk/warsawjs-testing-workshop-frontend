@@ -1,0 +1,119 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    width: 600px;
+}
+
+.noProducts {
+
+}
+
+.productsContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.basketHeader {
+    align-self: center;
+}
+
+.products {
+    border: 1px solid darkgray;
+
+    padding: 8px;
+
+    list-style: none;
+    margin: 0;
+}
+
+.product {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.product + .product {
+    border-top: 1px solid darkgray;
+}
+
+.image {
+    width: 60px;
+    height: 60px;
+}
+
+.name {
+    margin-left: 16px;
+}
+
+.counter {
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+}
+.counter strong {
+    margin-right: 8px;
+}
+
+.remove {
+    margin-right: 8px;
+}
+
+.productActions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.order {
+    margin-top: 16px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.orderButton {
+    width: 200px;
+}
+
+.sum {
+    border: 1px solid darkgray;
+    border-top: none;
+    padding: 8px;
+    width: 200px;
+    align-self: flex-end;
+    text-align: right;
+}
+
+.deliveryCostContainer {
+    display: flex;
+    padding-top: 8px;
+    border-top: 1px solid darkgray;
+    height: 76px;
+    align-items: center;
+}
+
+.deliveryCostTitle {
+    display: flex;
+    flex-direction: column;
+    margin-right: 8px;
+}
+
+.deliveryCostNotice {
+    font-size: 14px;
+}
+
+.deliveryCost {
+    margin-left: auto;
+}
+
+

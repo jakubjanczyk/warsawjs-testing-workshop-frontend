@@ -1,4 +1,4 @@
-import { cleanup, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import React from 'react';
 import nock from 'nock';
 import { Provider } from 'react-redux';
@@ -15,6 +15,26 @@ describe('Order Page', () => {
 
     afterEach(cleanup);
 
+    const givenSendOrder = (basket, details) => {
+        nock('http://localhost')
+          .post('/orders', {
+              basket: basket.map(product => ({
+                  id: product.id,
+                  count: product.count
+              })),
+              details
+          })
+          .reply(201, {});
+    };
+    const renderComponent = (store) => {
+        render(
+          <BrowserRouter>
+              <Provider store={store}>
+                  <Order />
+              </Provider>
+          </BrowserRouter>
+        );
+    };
     it('should gather data and send order', async () => {
         // TODO: Napisz test, który przejdzie przez cały proces finalizacji zamówienia
         // 1. Ustaw stan koszyka
@@ -23,7 +43,30 @@ describe('Order Page', () => {
         // 4. Sfinalizuj zamówienie przyciskiem
         // 5. Zweryfikuj, że pojawił się odpowiedni ekran oraz koszyk został wyczyszczony (w reduxie)
 
+        const basket = [
+            { id: '1', name: 'Samsung', count: 1, remaining: 10, price: 1200.0 },
+            { id: '2', name: 'Apple', count: 2, remaining: 10, price: 1500.0 }
+        ];
+        const personalDetails = {
+            firstName: 'Jakub',
+            lastName: 'Janczyk',
+            address: 'Warszawa',
+            payment: 'card'
+        }
+        givenSendOrder(basket, personalDetails);
 
+        const store = getStore({ basket: basket });
+        renderComponent(store);
+
+        userEvent.type(screen.getByLabelText('Imię'), 'Jakub');
+        userEvent.type(screen.getByLabelText('Nazwisko'), 'Janczyk');
+        userEvent.type(screen.getByLabelText('Adres'), 'Warszawa');
+        userEvent.selectOptions(screen.getByLabelText('Metoda płatności'), 'Karta kredytowa');
+
+        userEvent.click(screen.getByRole('button', { name: 'Finalizacja zamówienia' }));
+
+        expect(await screen.findByText('Dziękujemy! Zamówienie zostało złożone.')).toBeInTheDocument();
+        expect(store.getState().basket).toHaveLength(0);
     });
 
     // HINT: początkowy stan ustaw w reduxie

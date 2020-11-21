@@ -3,6 +3,7 @@ import styles from './Products.module.css';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button/Button';
 import { Select } from '../../components/Select/Select';
+import _ from 'lodash';
 
 const itemsPerPageOptions = [
     {key: 5, label: '5'},
@@ -10,14 +11,21 @@ const itemsPerPageOptions = [
     {key: 15, label: '15'},
 ];
 
+const sortOrderOptions = [
+    {key: 'asc', label: 'A-Z'},
+    {key: 'desc', label: 'Z-A'}
+]
+
 export const Products = ({ products = [] }) => {
     const [itemsPerPage, setItemsPerPage] = useState(5);
     const [currentPage, setCurrentPage] = useState(0);
+    const [sortOrder, setSortOrder] = useState('asc');
 
     const currentProducts = useMemo(() => {
         const pageStart = currentPage * itemsPerPage;
-        return products.slice(pageStart, pageStart + itemsPerPage);
-    }, [products, itemsPerPage, currentPage]);
+        const sorted = _.orderBy(products, 'name', sortOrder);
+        return sorted.slice(pageStart, pageStart + itemsPerPage);
+    }, [products, itemsPerPage, currentPage, sortOrder]);
 
     useEffect(() => {
         setCurrentPage(0);
@@ -36,6 +44,10 @@ export const Products = ({ products = [] }) => {
               <label className={styles.perPageSelect}>
                   Rozmiar strony:
                   <Select className={styles.select} onSelect={setItemsPerPage} options={itemsPerPageOptions} selected={itemsPerPage}/>
+              </label>
+              <label className={styles.sortSelect}>
+                  Sortuj:
+                  <Select className={styles.select} onSelect={setSortOrder} options={sortOrderOptions} selected={sortOrder}/>
               </label>
           </div>
           <div className={styles.products} data-testid={'products'}>

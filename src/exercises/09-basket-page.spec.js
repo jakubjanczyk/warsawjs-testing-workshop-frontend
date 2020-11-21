@@ -15,9 +15,29 @@ describe('Basket Page', () => {
 
     afterEach(cleanup);
 
+    const renderComponent = initialState => {
+        const store = getStore(initialState);
+        render(
+          <BrowserRouter>
+              <Provider store={store}>
+                  <Basket />
+              </Provider>
+          </BrowserRouter>
+        );
+    };
 
     it('should display products from basket', async () => {
-        // DEMO
+        const initialState = {
+            basket: [
+                {id: '1', name: 'Samsung', count: 1, remaining: 10, price: 1200.0},
+                {id: '2', name: 'Apple', count: 2, remaining: 10, price: 1500.0}
+            ]
+        }
+        renderComponent(initialState);
+
+        const basketItems = screen.getAllByTestId('product-name');
+
+        expect(basketItems.map(item => item.textContent)).toEqual(['Samsung', 'Apple']);
     });
 
     // TODO: Napisz test, który sprawdzi, że wyświetlona została poprawna suma cen produktów

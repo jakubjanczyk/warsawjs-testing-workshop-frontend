@@ -9,9 +9,36 @@ import userEvent from '@testing-library/user-event';
 
 describe('Product Page', () => {
 
+    beforeEach(() => {
+        nock.cleanAll();
+    });
 
+    afterEach(cleanup);
+
+    const givenProduct = (product) => {
+        nock('http://localhost')
+          .get(`/products/${product.id}`)
+          .once()
+          .reply(200, product);
+    };
+
+    const renderComponent = async () => {
+        render(
+          <MemoryRouter initialEntries={['/products/1']}>
+              <Provider store={getStore()}>
+                  <Route path="/products/:id" component={ProductPage} />
+              </Provider>
+          </MemoryRouter>
+        );
+        await waitForElementToBeRemoved(() => screen.getByText('Wczytywanie...'));
+    };
     it('should display name of a product', async () => {
-        // DEMO
+        givenProduct({ id: '1', name: 'Samsung', price: 1200.00, remaining: 10 });
+        await renderComponent();
+
+        const nameElement = screen.getByText('Samsung');
+
+        expect(nameElement).toBeInTheDocument();
     });
 
     // TODO: Napisz test sprawdzający, że wyświetlona jest poprawna cena produktu
